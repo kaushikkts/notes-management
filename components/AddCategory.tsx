@@ -72,7 +72,7 @@ const AddCategory = ({metadata, roomId}: {metadata: RoomMetadata, roomId: string
                             <div className="flex flex-col">
                                 <p>Choose a category for your note.</p>
                                 <p>
-                                    You can also suggest a category by writing it down and clicking "Suggest".
+                                    You can also suggest a category by writing it down and clicking &quot;Suggest&quot;.
                                 </p>
                                 <div className="flex mt-4">
                                     <Button onClick={getSuggestions} className="text-sm">
