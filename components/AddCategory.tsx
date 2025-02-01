@@ -27,9 +27,16 @@ const AddCategory = ({metadata, roomId}: {metadata: RoomMetadata, roomId: string
     const getSuggestions = async () => {
         setGettingOpenAISuggestions(true);
         const document = await getStorageDocument(roomId);
-        const suggestions = await suggestCategoryName({title: metadata.title, content: document?.root})
-        setSuggestions(suggestions);
-        setGettingOpenAISuggestions(false);
+        try {
+            // const suggestions = await suggestCategoryName({title: metadata.title, content: document?.root})
+            const response = await fetch(`/api/openapi?title=${metadata.title}&content=${document?.root}`, {method: 'GET', headers: {'Content-Type': 'application/json'}});
+            const suggestions = await response.json();
+            console.log('response', suggestions)
+            setSuggestions(suggestions);
+            setGettingOpenAISuggestions(false);
+        } catch (e) {
+            setGettingOpenAISuggestions(false);
+        }
     }
 
     const updateCategory = async (e: React.KeyboardEvent<HTMLInputElement>) => {
