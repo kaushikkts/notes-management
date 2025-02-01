@@ -27,7 +27,6 @@ const AddCategory = ({metadata, roomId}: {metadata: RoomMetadata, roomId: string
     const getSuggestions = async () => {
         setGettingOpenAISuggestions(true);
         const document = await getStorageDocument(roomId);
-        console.log('Log Document', document?.root, metadata.title);
         const suggestions = await suggestCategoryName({title: metadata.title, content: document?.root})
         setSuggestions(suggestions);
         setGettingOpenAISuggestions(false);

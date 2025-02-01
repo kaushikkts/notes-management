@@ -1,7 +1,6 @@
 "use server";
 
 import OpenAI from "openai";
-console.log(process.env.OPEN_API_KEY)
 const openai = new OpenAI({
     apiKey: process.env.OPEN_API_KEY
 });
@@ -11,7 +10,6 @@ const openai = new OpenAI({
 
 
 const suggestCategoryName = async (data: any) => {
-    console.log(data.title, data.content)
     const prompt = `
         For the given title ${data.title} and content ${data.content}
         give a suggestion for the category of this note. Don't give a detailed suggestion, just the suggestion words are fine.
@@ -28,7 +26,6 @@ const suggestCategoryName = async (data: any) => {
         store: true,
     });
 
-    console.log(completion.choices[0].message.content);
     return completion.choices[0].message.content || 'No Suggestions';
 }
 

@@ -167,7 +167,6 @@ export const deleteDocument = async (roomId: string) => {
 export const getStorageDocument = async (roomId: string) => {
   try {
     const document = await liveblocks.getYjsDocument(roomId);
-    console.log('inside actions: -', document)
     return parseStringify(document);
   } catch (error) {
     console.log(`Error happened while getting a storage document: ${error}`);
