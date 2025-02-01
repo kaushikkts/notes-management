@@ -1,9 +1,10 @@
-import OpenAI from "openai";
-const openai = new OpenAI({
-    apiKey: process.env.LIVEBLOCKS_SECRET_KEY as string,
-    dangerouslyAllowBrowser: true,
-});
+"use server";
 
+import OpenAI from "openai";
+console.log(process.env.OPEN_API_KEY)
+const openai = new OpenAI({
+    apiKey: process.env.OPEN_API_KEY
+});
 
 
 
