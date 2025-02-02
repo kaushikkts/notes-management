@@ -159,7 +159,7 @@ export const deleteDocument = async (roomId: string) => {
   } catch (error) {
     console.log(`Error happened while deleting a room: ${error}`);
   } finally {
-    revalidateTag('rooms');
+    revalidatePath('/');
     redirect('/');
   }
 }

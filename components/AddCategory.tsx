@@ -15,7 +15,6 @@ import Image from "next/image";
 import {Input} from "@/components/ui/input";
 import React, {useState} from "react";
 import {getStorageDocument, updateDocumentCategory} from "@/lib/actions/room.actions";
-import suggestCategoryName from "@/lib/actions/openai.actions";
 import Loader from "@/components/Loader";
 
 const AddCategory = ({metadata, roomId}: {metadata: RoomMetadata, roomId: string}) => {
@@ -28,10 +27,8 @@ const AddCategory = ({metadata, roomId}: {metadata: RoomMetadata, roomId: string
         setGettingOpenAISuggestions(true);
         const document = await getStorageDocument(roomId);
         try {
-            // const suggestions = await suggestCategoryName({title: metadata.title, content: document?.root})
             const response = await fetch(`/api/openapi?title=${metadata.title}&content=${document?.root}`, {method: 'GET', headers: {'Content-Type': 'application/json'}});
             const suggestions = await response.json();
-            console.log('response', suggestions)
             setSuggestions(suggestions);
             setGettingOpenAISuggestions(false);
         } catch (e) {
