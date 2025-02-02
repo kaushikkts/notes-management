@@ -32,8 +32,8 @@ Styling: Tailwind CSS / Shadcn
 
 Clone the repository:
 
-git clone https://github.com/your-username/notes-management-app.git
-cd notes-management-app
+git clone https://github.com/kaushikkts/notes-management.git
+cd notes-management
 
 Install dependencies:
 
@@ -41,10 +41,19 @@ npm install  # or yarn install
 
 Set up environment variables: Create a .env.local file and add the following:
 
-NEXT_PUBLIC_LIVEBLOCKS_API_KEY=your_liveblocks_api_key
-OPENAI_API_KEY=your_openai_api_key
-DATABASE_URL=your_database_url
-NEXTAUTH_SECRET=your_nextauth_secret
+#Clerk
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+CLERK_SECRET_KEY=
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+
+#Liveblocks
+NEXT_PUBLIC_LIVEBLOCKS_PUBLIC_KEY=
+LIVEBLOCKS_SECRET_KEY=
+
+#OpenAI
+OPEN_API_KEY=
+
 
 Run the development server:
 
@@ -54,35 +63,10 @@ Open http://localhost:3000 in your browser.
 
 📖 Usage
 
-🆕 Creating a Note: Click on "New Note" and start typing.
+🆕 Creating a Note: Click on "Start a blank document" and start typing.
 
 📡 Real-time Collaboration: Share the note link with others for seamless teamwork.
 
-🧠 AI Assistance: Use AI-powered features for text generation and summarization.
+🧠 AI Assistance: Use AI-powered features for category suggestions.
 
 📂 Saving & Organizing: Notes are automatically saved and can be categorized.
-
-🤝 Contributing
-
-We welcome contributions! To contribute:
-
-Fork the repository
-
-Create a feature branch (git checkout -b feature-name)
-
-Commit your changes (git commit -m "Added new feature")
-
-Push to the branch (git push origin feature-name)
-
-Open a Pull Request
-
-📜 License
-
-This project is licensed under the MIT License.
-
-📩 Contact
-
-For questions or feedback, reach out to your-email@example.com.
-
-Enjoy seamless note-taking and real-time collaboration! ✍️🚀
-
